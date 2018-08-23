@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.3.18.RELEASE</spring.version>
+		<spring.version>4.1.1.RELEASE</spring.version>
 		<junit.version>3.8.1</junit.version>
 		<log4j.version>1.2.12</log4j.version>
 		<proxool.version>0.9.1</proxool.version>
@@ -107,9 +107,9 @@
 				<version>2.3.2</version>
 				<configuration>
 					<!-- 源代码编译版本 -->
-					<source>1.7</source>
+					<source>1.8</source>
 					<!-- 目标平台编译版本 -->
-					<target>1.7</target>
+					<target>1.8</target>
 					<!-- 取项目字符集编码 -->
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
@@ -289,12 +289,12 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.9.1</version>
+			<version>1.8.9</version>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.9.1</version>
+			<version>1.8.9</version>
 		</dependency>
 		<dependency>
 			<groupId>cglib</groupId>
