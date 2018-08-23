@@ -1,12 +1,35 @@
 package parkingos.com.bolink.actions;
 
-import com.alibaba.fastjson.JSONObject;
-import com.zld.common_dao.dao.CommonDao;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.net.Inet4Address;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import parkingos.com.bolink.beans.*;
+
+import com.alibaba.fastjson.JSONObject;
+import com.zld.common_dao.dao.CommonDao;
+
+import parkingos.com.bolink.beans.ComInfoTb;
+import parkingos.com.bolink.beans.FixCodeTb;
+import parkingos.com.bolink.beans.OrderTb;
+import parkingos.com.bolink.beans.ParkTokenTb;
+import parkingos.com.bolink.beans.QrCodeTb;
+import parkingos.com.bolink.beans.ShopTb;
+import parkingos.com.bolink.beans.TicketTb;
 import parkingos.com.bolink.component.CommonComponent;
 import parkingos.com.bolink.constant.Constants;
 import parkingos.com.bolink.constant.WeixinConstants;
@@ -15,17 +38,17 @@ import parkingos.com.bolink.dto.WXUserView;
 import parkingos.com.bolink.service.AliPrepayService;
 import parkingos.com.bolink.service.QrFilterService;
 import parkingos.com.bolink.service.ShopTicketManagerService;
-import parkingos.com.bolink.utlis.*;
+import parkingos.com.bolink.utlis.AjaxUtil;
+import parkingos.com.bolink.utlis.Check;
+import parkingos.com.bolink.utlis.CommonUtils;
+import parkingos.com.bolink.utlis.Defind;
+import parkingos.com.bolink.utlis.HttpProxy;
+import parkingos.com.bolink.utlis.RequestHandler;
+import parkingos.com.bolink.utlis.RequestUtil;
+import parkingos.com.bolink.utlis.StringUtils;
+import parkingos.com.bolink.utlis.TimeTools;
+import parkingos.com.bolink.utlis.WexinPublicUtil;
 import parkingos.com.bolink.utlis.weixinpay.utils.XMLUtil;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.net.Inet4Address;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 /**
  * 减免劵使用
@@ -563,7 +586,7 @@ public class AliQrPrepayAction {
 
         //3 生成劵
         Map<String,Object> retMap = createTicketByCode(request,response,fixcode);
-        if(retMap.get("state") == 0 ||retMap.get("state") == -1){
+        if(Integer.valueOf(retMap.get("state") + "") == 0 || Integer.valueOf(retMap.get("state") + "") == -1){
 //            logger.info("ticketManager noscan 车牌>>>>>>>>"+car_number+"生成减免劵出错，用劵失败");
 //            AjaxUtil.ajaxOutput(response, retMap);
             request.setAttribute("state", 1);
@@ -656,7 +679,7 @@ public class AliQrPrepayAction {
 
         //3 生成劵
         Map<String,Object> retMap = createTicketByCode(request,response,code);
-        if(retMap.get("state") == 0 ||retMap.get("state") == -1){
+        if(Integer.valueOf(retMap.get("state") + "") == 0 || Integer.valueOf(retMap.get("state") + "") == -1){
 //            logger.info("ticketManager noscan 车牌>>>>>>>>"+car_number+"生成减免劵出错，用劵失败");
 //            AjaxUtil.ajaxOutput(response, retMap);
             request.setAttribute("state", 1);
@@ -704,7 +727,7 @@ public class AliQrPrepayAction {
                 }else{
 
                     Map<String,Object> retMap = createTicket(shop_id,amount,5,0);
-                    if(retMap.get("result") == -1 || retMap.get("result") == -2){
+                    if(Integer.valueOf(retMap.get("result") + "") == -1 || Integer.valueOf(retMap.get("result") + "") == -2){
                         logger.info("生成减免劵出错，用劵失败");
                         rMap.put("state",0);
                         rMap.put("error",retMap.get("error"));
@@ -730,7 +753,7 @@ public class AliQrPrepayAction {
                     return rMap;
                 }else{
                     Map<String,Object> retMap = createTicket(shop_id,amount,3,0);
-                    if(retMap.get("result") == -1 || retMap.get("result") == -2){
+                    if(Integer.valueOf(retMap.get("result") + "") == -1 || Integer.valueOf(retMap.get("result") + "") == -2){
                         logger.info("生成减免劵出错，用劵失败");
                         rMap.put("state",0);
                         rMap.put("error",retMap.get("error"));
@@ -758,7 +781,7 @@ public class AliQrPrepayAction {
             }else{
 
                 Map<String,Object> retMap = createTicket(shop_id,0,4,0);
-                if(retMap.get("result") == -1 || retMap.get("result") == -2){
+                if(Integer.valueOf(retMap.get("result") + "") == -1 || Integer.valueOf(retMap.get("result") + "") == -2){
                     logger.info("生成减免劵出错，用劵失败");
                     rMap.put("state",0);
                     rMap.put("error",retMap.get("error"));
