@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>parkingos</groupId>
-	<artifactId>com.bolink</artifactId>
+	<artifactId>parkingos_cloud_api</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -373,6 +373,18 @@
 		    <groupId>dom4j</groupId>
 		    <artifactId>dom4j</artifactId>
 		    <version>1.6.1</version>
-		</dependency>					
+		</dependency>	
+		<!--  			
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.2.4</version>
+		</dependency>
+		-->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>9.4.1212</version>
+		</dependency>				
 	</dependencies>
 </project>
