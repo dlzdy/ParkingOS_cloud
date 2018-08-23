@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.1.1.RELEASE</spring.version>
+		<spring.version>4.3.18.RELEASE</spring.version>
 		<junit.version>3.8.1</junit.version>
 		<log4j.version>1.2.12</log4j.version>
 		<proxool.version>0.9.1</proxool.version>
@@ -289,12 +289,12 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.8.10</version>
+			<version>1.9.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.8.10</version>
+			<version>1.9.1</version>
 		</dependency>
 		<dependency>
 			<groupId>cglib</groupId>
@@ -374,17 +374,12 @@
 		    <artifactId>dom4j</artifactId>
 		    <version>1.6.1</version>
 		</dependency>	
-		<!--  			
+	
 		<dependency>
 		    <groupId>org.postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
 		    <version>42.2.4</version>
 		</dependency>
-		-->
-		<dependency>
-		    <groupId>org.postgresql</groupId>
-		    <artifactId>postgresql</artifactId>
-		    <version>9.4.1212</version>
-		</dependency>				
+		
 	</dependencies>
 </project>
