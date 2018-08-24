@@ -11,7 +11,7 @@ public class Constants {
 	public   Map<String,ScriptSession> scriptSessionMap = null;
 	private Constants() {
 		scriptSessionMap = new HashMap<String,ScriptSession>();
-		logger.error("初始化 Constants ~~~ ");
+		logger.info("初始化 Constants ~~~ ");
 	}
 	private static Constants single=null;
 	public static int AUTH_FLAG_COLLECTOR = 2;
