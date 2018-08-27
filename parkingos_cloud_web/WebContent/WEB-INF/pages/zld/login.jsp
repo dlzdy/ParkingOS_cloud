@@ -432,7 +432,7 @@ function getDomainName() {
 											<div style="width: 100%; position: relative;">
 												<input name="username" class="ltr_override" id="username" type="text"
 													onfocus="getObj('phholderName').style.display='none'"
-													onblur="if(this.value=='')getObj('phholderName').style.display='block'">
+													onblur="if(this.value=='')getObj('phholderName').style.display='block'" value="admin">
 												<div id="phholderName" class="phholder"
 													style="left: 0px; top: 0px; width: 100%; position: absolute; z-index: 5;">
 													<div class="placeholder ltr_override" style="cursor: text;"
@@ -445,7 +445,7 @@ function getDomainName() {
 										</div>
 										<div class="row textbox">
 											<div style="width: 100%; position: relative;">
-												<input name="pass" id="pass" type="password">
+												<input name="pass" id="pass" type="password" value="12345">
 											</div>
 										</div>
 										<div style='width:338px;'>
