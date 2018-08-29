@@ -24,7 +24,7 @@ public class Config {
 //			onlineurl = "http://192.168.199.223:8080/zld/";
 //			onlineurl = "http://192.168.199.122/zld/";
 //			onlineurl = "http://192.168.199.239:80/zld/";
-//			onlineurl = "http://192.168.1.229:80/zld/";
+			onlineurl = "http://172.24.6.104/zld/";
 		}else if (url.equals("2")) {
 //			onlineurl = "http://192.168.199.240/zld/";
 			onlineurl = "http://yxiudongyeahnet.vicp.cc/zld/";
