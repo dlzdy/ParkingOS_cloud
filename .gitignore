@@ -1,2 +1,4 @@
 *.class
 .settings
+/apps/pda/biz/build
+/apps/pda/biz/.idea
