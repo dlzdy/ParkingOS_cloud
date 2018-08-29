@@ -55,8 +55,9 @@ public class TCBApp extends Application {
             case "release":
                 return getString(R.string.url_release);
             case "debug":
+            case "alpha":
                 // 测试写个本地账号，省去登录步骤
-//                saveString(R.string.sp_mobile, "13641309140");
+                saveString(R.string.sp_mobile, "13641309140");
         }
         return readString(R.string.sp_url_server, getString(R.string.url_release));
     }
