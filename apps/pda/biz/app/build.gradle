@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 23
+    compileSdkVersion 22
     buildToolsVersion '23.0.3'
 
     defaultConfig {
         applicationId "com.zhenlaidian"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1410
         versionName "1.4.1"
 
@@ -31,6 +31,10 @@ android {
 //                ex.printStackTrace();
                 throw new InvalidUserDataException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.")
             }
+            keyAlias 'zhenlaidian'
+            keyPassword 'zhenlaidian500'
+            storeFile file('E:/work_parkingos/ParkingOS_cloud/apps/pda/biz/zhenlaidian2.keystore')
+            storePassword 'zhenlaidian500'
         }
     }
     buildTypes {
